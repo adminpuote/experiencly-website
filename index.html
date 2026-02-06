@@ -1,665 +1,85 @@
-<!DOCTYPE html>
-<html lang="it">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Experiencly - Vendiamo le tue esperienze online</title>
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="apple-touch-icon" href="favicon.png">
-  <meta name="description" content="Experiencly è la tua funzione commerciale esterna: strategia, implementazione e gestione continuativa delle vendite digitali per operatori wellness, outdoor e food & wine.">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-      line-height: 1.6;
-      color: #1a202c;
-    }
-    
-    /* Header */
-    header {
-      background: transparent;
-      padding: 16px 0;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-    }
-    
-    .header-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .logo {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-    }
-    
-    .logo img {
-      height: 120px;
-      width: auto;
-    }
-    
-    .cta-button {
-      background: #1D4ED8;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: background 0.2s;
-    }
-    
-    .cta-button:hover {
-      background: #1e40af;
-    }
-    
-    /* Hero Section */
-    .hero {
-      background: linear-gradient(135deg, #0B1B3A 0%, #1e3a5f 100%);
-      color: white;
-      padding: 160px 20px 100px;
-      text-align: center;
-    }
-    
-    .hero-container {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    
-    .hero h1 {
-      font-size: 56px;
-      font-weight: 700;
-      margin-bottom: 24px;
-      line-height: 1.2;
-    }
-    
-    .hero p {
-      font-size: 22px;
-      color: rgba(255,255,255,0.9);
-      margin-bottom: 40px;
-      line-height: 1.6;
-    }
-    
-    .hero-cta {
-      display: inline-flex;
-      gap: 16px;
-    }
-    
-    .primary-btn {
-      background: #1D4ED8;
-      color: white;
-      padding: 16px 32px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 18px;
-      transition: all 0.2s;
-      border: 2px solid transparent;
-    }
-    
-    .primary-btn:hover {
-      background: #1e40af;
-      transform: translateY(-2px);
-    }
-    
-    .secondary-btn {
-      background: transparent;
-      color: white;
-      padding: 16px 32px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 18px;
-      border: 2px solid rgba(255,255,255,0.3);
-      transition: all 0.2s;
-    }
-    
-    .secondary-btn:hover {
-      border-color: white;
-      background: rgba(255,255,255,0.1);
-    }
-    
-    /* Section Styles */
-    section {
-      padding: 80px 20px;
-    }
-    
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-    .section-title {
-      font-size: 42px;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 20px;
-      color: #0B1B3A;
-    }
-    
-    .section-subtitle {
-      font-size: 20px;
-      text-align: center;
-      color: #4b5563;
-      margin-bottom: 60px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    /* Settori Section */
-    .settori {
-      background: #f9fafb;
-    }
-    
-    .settori-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-      margin-top: 60px;
-    }
-    
-    .settore-card {
-      background: white;
-      padding: 32px;
-      border-radius: 12px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-      text-align: center;
-      border: 2px solid #e5e7eb;
-      transition: all 0.3s;
-    }
-    
-    .settore-card:hover {
-      border-color: #1D4ED8;
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(29, 78, 216, 0.1);
-    }
-    
-    .settore-icon {
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
-    
-    .settore-card h3 {
-      font-size: 24px;
-      font-weight: 600;
-      margin-bottom: 12px;
-      color: #0B1B3A;
-    }
-    
-    .settore-card p {
-      color: #4b5563;
-      line-height: 1.7;
-    }
-    
-    /* Solution Section */
-    .solution-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 40px;
-      margin-top: 60px;
-    }
-    
-    .solution-card {
-      text-align: center;
-      padding: 32px;
-      background: white;
-      border-radius: 12px;
-      border: 2px solid #e5e7eb;
-      transition: all 0.3s;
-    }
-    
-    .solution-card:hover {
-      border-color: #1D4ED8;
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(29, 78, 216, 0.1);
-    }
-    
-    .solution-icon {
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
-    
-    .solution-card h3 {
-      font-size: 24px;
-      font-weight: 600;
-      margin-bottom: 12px;
-      color: #0B1B3A;
-    }
-    
-    .solution-card p {
-      color: #4b5563;
-      line-height: 1.7;
-    }
-    
-    /* Tagline box */
-    .tagline-box {
-      text-align: center;
-      margin-top: 60px;
-      padding: 32px;
-      background: linear-gradient(135deg, #1D4ED8 0%, #0EA5A4 100%);
-      border-radius: 12px;
-    }
-    
-    .tagline-box p {
-      color: white;
-      font-size: 22px;
-      margin: 0;
-      font-weight: 500;
-    }
-    
-    /* Case Study Section */
-    .case-study {
-      background: #f9fafb;
-    }
-    
-    .case-study-card {
-      max-width: 600px;
-      margin: 40px auto 0;
-      background: white;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    
-    .case-study-card h3 {
-      font-size: 28px;
-      font-weight: 600;
-      margin-bottom: 16px;
-      color: #0B1B3A;
-    }
-    
-    .case-study-card p {
-      color: #4b5563;
-      font-size: 18px;
-      margin-bottom: 20px;
-      line-height: 1.7;
-    }
-    
-    .case-study-card a {
-      color: #1D4ED8;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 18px;
-    }
-    
-    .case-study-card a:hover {
-      text-decoration: underline;
-    }
-    
-    /* About Section */
-    .about {
-      background: white;
-    }
-    
-    .about-content {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    
-    .about-content p {
-      font-size: 20px;
-      line-height: 1.8;
-      color: #4b5563;
-      margin-bottom: 24px;
-    }
-    
-    /* CTA Section */
-    .cta-section {
-      background: linear-gradient(135deg, #0B1B3A 0%, #1e3a5f 100%);
-      color: white;
-      text-align: center;
-    }
-    
-    .cta-section .section-title {
-      color: white;
-    }
-    
-    .cta-section .primary-btn {
-      margin-bottom: 20px;
-    }
-    
-    .cta-email {
-      color: rgba(255,255,255,0.8);
-      font-size: 18px;
-    }
-    
-    .cta-email a {
-      color: #0EA5A4;
-      text-decoration: none;
-    }
-    
-    .cta-email a:hover {
-      text-decoration: underline;
-    }
-    
-    /* Footer */
-    footer {
-      background: #0B1B3A;
-      color: rgba(255,255,255,0.8);
-      padding: 60px 20px 30px;
-    }
-    
-    .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 40px;
-      margin-bottom: 40px;
-    }
-    
-    .footer-section h4 {
-      color: white;
-      font-size: 18px;
-      margin-bottom: 16px;
-      font-weight: 600;
-    }
-    
-    .footer-section p,
-    .footer-section a {
-      color: rgba(255,255,255,0.8);
-      text-decoration: none;
-      display: block;
-      margin-bottom: 8px;
-      line-height: 1.6;
-    }
-    
-    .footer-section a:hover {
-      color: #0EA5A4;
-    }
-    
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 30px;
-      text-align: center;
-      font-size: 14px;
-    }
-    
-    @media (max-width: 768px) {
-      /* Header mobile */
-      .logo img {
-        height: 80px;
-      }
-      
-      .cta-button {
-        padding: 10px 16px;
-        font-size: 14px;
-      }
-      
-      /* Hero mobile */
-      .hero {
-        padding: 120px 20px 60px;
-      }
-      
-      .hero h1 {
-        font-size: 32px;
-        margin-bottom: 16px;
-      }
-      
-      .hero p {
-        font-size: 16px;
-        margin-bottom: 24px;
-      }
-      
-      .primary-btn {
-        width: 100%;
-        padding: 16px 24px;
-        font-size: 16px;
-      }
-      
-      /* Sections mobile */
-      section {
-        padding: 48px 16px;
-      }
-      
-      .section-title {
-        font-size: 26px;
-        margin-bottom: 16px;
-      }
-      
-      .section-subtitle {
-        font-size: 16px;
-        margin-bottom: 32px;
-      }
-      
-      /* Cards mobile */
-      .settori-grid,
-      .solution-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-        margin-top: 32px;
-      }
-      
-      .settore-card,
-      .solution-card {
-        padding: 24px;
-      }
-      
-      .settore-icon,
-      .solution-icon {
-        font-size: 36px;
-        margin-bottom: 12px;
-      }
-      
-      .settore-card h3,
-      .solution-card h3 {
-        font-size: 20px;
-      }
-      
-      .settore-card p,
-      .solution-card p {
-        font-size: 15px;
-      }
-      
-      /* Tagline mobile */
-      .tagline-box {
-        margin-top: 32px;
-        padding: 24px;
-      }
-      
-      .tagline-box p {
-        font-size: 18px;
-      }
-      
-      /* Case study mobile */
-      .case-study-card {
-        padding: 24px;
-      }
-      
-      .case-study-card h3 {
-        font-size: 22px;
-      }
-      
-      .case-study-card p {
-        font-size: 16px;
-      }
-      
-      /* About mobile */
-      .about-content p {
-        font-size: 16px;
-        line-height: 1.7;
-      }
-      
-      /* CTA mobile */
-      .cta-section .section-title {
-        font-size: 24px;
-      }
-      
-      .cta-email {
-        font-size: 15px;
-      }
-      
-      /* Footer mobile */
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-        text-align: center;
-      }
-    }
-    
-    /* Small phones */
-    @media (max-width: 380px) {
-      .hero h1 {
-        font-size: 28px;
-      }
-      
-      .section-title {
-        font-size: 22px;
-      }
-      
-      .logo img {
-        height: 60px;
-      }
-    }
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Description" content="Experiencly è la tua funzione commerciale esterna: strategia, implementazione e gestione continuativa delle vendite digitali per operatori wellness, outdoor e food &amp; wine.">
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.3">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #0000e9; -webkit-text-stroke: #0000e9}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff; background-color: #1634cf}
+    p.p4 {margin: 0.0px 0.0px 40.0px 0.0px; text-align: center; font: 22.0px 'Helvetica Neue'; color: #ffffff; color: rgba(255, 255, 255, 0.9); -webkit-text-stroke: rgba(255, 255, 255, 0.9)}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 18.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff; background-color: #1634cf}
+    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 48.0px '.Apple Color Emoji UI'; color: #141821; -webkit-text-stroke: #141821}
+    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 12.0px 'Helvetica Neue'; color: #3b4350; -webkit-text-stroke: #3b4350}
+    p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 22.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff}
+    p.p12 {margin: 0.0px 0.0px 20.0px 0.0px; text-align: center; font: 18.0px 'Helvetica Neue'; color: #3b4350; -webkit-text-stroke: #3b4350}
+    p.p13 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 18.0px 'Helvetica Neue'; color: #1634cf; -webkit-text-stroke: #1634cf; background-color: #ffffff}
+    p.p14 {margin: 0.0px 0.0px 24.0px 0.0px; text-align: center; font: 20.0px 'Helvetica Neue'; color: #3b4350; -webkit-text-stroke: #3b4350}
+    p.p16 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 18.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff}
+    p.p17 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 18.0px 'Helvetica Neue'; color: #189693; -webkit-text-stroke: #189693}
+    p.p19 {margin: 0.0px 0.0px 8.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #ffffff; color: rgba(255, 255, 255, 0.8); -webkit-text-stroke: rgba(255, 255, 255, 0.8)}
+    p.p20 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #ffffff; color: rgba(255, 255, 255, 0.8); -webkit-text-stroke: rgba(255, 255, 255, 0.8)}
+    p.p21 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 14.0px 'Helvetica Neue'; color: #ffffff; color: rgba(255, 255, 255, 0.8); -webkit-text-stroke: rgba(255, 255, 255, 0.8)}
+    span.s1 {font-kerning: none}
+    span.s2 {font-kerning: none; color: #ffffff; -webkit-text-stroke: 0px #ffffff}
+    span.s3 {font: 18.0px 'Helvetica Neue'; font-kerning: none; color: #ffffff; -webkit-text-stroke: 0px #ffffff}
+    span.s4 {font-kerning: none; background-color: #f7f9fa}
+    span.s5 {font-kerning: none; background-color: #ffffff}
+    span.s6 {font: 18.0px 'Helvetica Neue'; font-kerning: none; color: #1634cf; -webkit-text-stroke: 0px #1634cf}
+    span.s7 {font-kerning: none; background-color: #1634cf}
+    span.s8 {font-kerning: none; color: rgba(255, 255, 255, 0.8); -webkit-text-stroke: 0px rgba(255, 255, 255, 0.8)}
+    span.s9 {font-kerning: none; color: #189693; -webkit-text-stroke: 0px #189693}
+    span.s10 {font-kerning: none; background-color: #0b142c}
+    span.s11 {font: 12.0px 'Helvetica Neue'; font-kerning: none; color: rgba(255, 255, 255, 0.8); -webkit-text-stroke: 0px rgba(255, 255, 255, 0.8)}
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <div class="header-container">
-      <a href="#" class="logo">
-        <img src="logo.png" alt="Experiencly">
-      </a>
-      <a href="https://calendly.com/giacomo-toscani" class="cta-button">Parliamone</a>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-container">
-      <h1>Vendiamo le tue esperienze online.</h1>
-      <p>Experiencly è la tua funzione commerciale esterna: strategia, implementazione e gestione continuativa delle vendite digitali per operatori wellness, outdoor e food & wine.</p>
-      <div class="hero-cta">
-        <a href="https://calendly.com/giacomo-toscani" class="primary-btn">Parliamone</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Settori Section -->
-  <section class="settori">
-    <div class="container">
-      <h2 class="section-title">Tre settori. Un metodo.</h2>
-      <div class="settori-grid">
-        <div class="settore-card">
-          <div class="settore-icon">🧖</div>
-          <h3>Wellness & Spa</h3>
-          <p>Day spa, centri benessere, terme</p>
-        </div>
-        <div class="settore-card">
-          <div class="settore-icon">🏔️</div>
-          <h3>Attività Outdoor</h3>
-          <p>Parchi avventura, escursioni, esperienze natura</p>
-        </div>
-        <div class="settore-card">
-          <div class="settore-icon">🍷</div>
-          <h3>Enogastronomia</h3>
-          <p>Degustazioni, corsi di cucina, esperienze enogastronomiche</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Solution Section -->
-  <section class="solution">
-    <div class="container">
-      <h2 class="section-title">Non consulenza spot. Partnership operativa.</h2>
-      <div class="solution-grid">
-        <div class="solution-card">
-          <div class="solution-icon">🎯</div>
-          <h3>Strategia di distribuzione</h3>
-          <p>Dove e come vendere online</p>
-        </div>
-        <div class="solution-card">
-          <div class="solution-icon">⚙️</div>
-          <h3>Implementazione</h3>
-          <p>Attivazione canali, pricing, catalogo</p>
-        </div>
-        <div class="solution-card">
-          <div class="solution-icon">📊</div>
-          <h3>Gestione continuativa</h3>
-          <p>Monitoriamo, ottimizziamo, reportiamo</p>
-        </div>
-      </div>
-      <div class="tagline-box">
-        <p>Funzioniamo come il tuo reparto commerciale digitale. Senza assumerlo.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Case Study Section -->
-  <section class="case-study">
-    <div class="container">
-      <h2 class="section-title">Con chi lavoriamo</h2>
-      <div class="case-study-card">
-        <h3>CorteSPA</h3>
-        <p>Centro wellness nelle Dolomiti. Vendita online di ingressi spa e percorsi benessere.</p>
-        <a href="https://cortespa.it" target="_blank">cortespa.it →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section class="about">
-    <div class="container">
-      <h2 class="section-title">Chi siamo</h2>
-      <div class="about-content">
-        <p>Sappiamo come funzionano le vendite — abbiamo gestito reti commerciali e lanciato brand in aziende come Luxottica, Geox e Walgreens. Oggi portiamo lo stesso approccio agli operatori turistici: strategia chiara, esecuzione concreta, focus sui risultati.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="cta-section">
-    <div class="container">
-      <h2 class="section-title">Vuoi capire se possiamo lavorare insieme?</h2>
-      <a href="https://calendly.com/giacomo-toscani" class="primary-btn">Prenota una call</a>
-      <p class="cta-email">oppure scrivi a <a href="mailto:info@experiencly.com">info@experiencly.com</a></p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-container">
-      <div class="footer-grid">
-        <div class="footer-section">
-          <h4>Experiencly</h4>
-          <p>La tua funzione commerciale esterna per le vendite online di esperienze.</p>
-        </div>
-        
-        <div class="footer-section">
-          <h4>Contatti</h4>
-          <p>Milano, Italia</p>
-          <p><a href="mailto:info@experiencly.com">info@experiencly.com</a></p>
-        </div>
-        
-        <div class="footer-section">
-          <h4>Informazioni Legali</h4>
-          <p>P.IVA: IT12173330965</p>
-          <p>REA: MI - 2726615</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2026 Experiencly by Puote. Tutti i diritti riservati.</p>
-      </div>
-    </div>
-  </footer>
+<p class="p1"><span class="s1"><img src="file:///Attachment.png" alt="Attachment.png"></span></p>
+<p class="p2"><span class="s1"><a href="https://calendly.com/giacomo-toscani">Parliamone<span class="s2"></span></a></span></p>
+<h1 style="margin: 0.0px 0.0px 24.0px 0.0px; text-align: center; font: 56.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff"><span class="s1"><b>Vendiamo le tue esperienze online.</b></span></h1>
+<p class="p4"><span class="s1">Experiencly è la tua funzione commerciale esterna: strategia, implementazione e gestione continuativa delle vendite digitali per operatori wellness, outdoor e food &amp; wine.</span></p>
+<p class="p5"><span class="s1"><a href="https://calendly.com/giacomo-toscani">Parliamone<span class="s3"></span></a></span></p>
+<h2 style="margin: 0.0px 0.0px 20.0px 0.0px; text-align: center; font: 42.0px 'Helvetica Neue'; color: #0b142c; -webkit-text-stroke: #0b142c"><span class="s4"><b>Tre settori. Un metodo.</b><b></b></span></h2>
+<p class="p7"><span class="s5">🧖</span></p>
+<h3 style="margin: 0.0px 0.0px 12.0px 0.0px; text-align: center; font: 24.0px 'Helvetica Neue'; color: #0b142c; -webkit-text-stroke: #0b142c"><span class="s5">Wellness &amp; Spa</span></h3>
+<p class="p9"><span class="s5">Day spa, centri benessere, terme</span></p>
+<p class="p7"><span class="s5">🏔️</span></p>
+<h3 style="margin: 0.0px 0.0px 12.0px 0.0px; text-align: center; font: 24.0px 'Helvetica Neue'; color: #0b142c; -webkit-text-stroke: #0b142c"><span class="s5">Attività Outdoor</span></h3>
+<p class="p9"><span class="s5">Parchi avventura, escursioni, esperienze natura</span></p>
+<p class="p7"><span class="s5">🍷</span></p>
+<h3 style="margin: 0.0px 0.0px 12.0px 0.0px; text-align: center; font: 24.0px 'Helvetica Neue'; color: #0b142c; -webkit-text-stroke: #0b142c"><span class="s5">Enogastronomia</span></h3>
+<p class="p9"><span class="s5">Degustazioni, corsi di cucina, esperienze enogastronomiche</span></p>
+<h2 style="margin: 0.0px 0.0px 20.0px 0.0px; text-align: center; font: 42.0px 'Helvetica Neue'; color: #0b142c; -webkit-text-stroke: #0b142c"><span class="s1"><b>Non consulenza spot. Partnership operativa.</b></span></h2>
+<p class="p7"><span class="s5">🎯</span></p>
+<h3 style="margin: 0.0px 0.0px 12.0px 0.0px; text-align: center; font: 24.0px 'Helvetica Neue'; color: #0b142c; -webkit-text-stroke: #0b142c"><span class="s5">Strategia di distribuzione</span></h3>
+<p class="p9"><span class="s5">Dove e come vendere online</span></p>
+<p class="p7"><span class="s5">⚙️</span></p>
+<h3 style="margin: 0.0px 0.0px 12.0px 0.0px; text-align: center; font: 24.0px 'Helvetica Neue'; color: #0b142c; -webkit-text-stroke: #0b142c"><span class="s5">Implementazione</span></h3>
+<p class="p9"><span class="s5">Attivazione canali, pricing, catalogo</span></p>
+<p class="p7"><span class="s5">📊</span></p>
+<h3 style="margin: 0.0px 0.0px 12.0px 0.0px; text-align: center; font: 24.0px 'Helvetica Neue'; color: #0b142c; -webkit-text-stroke: #0b142c"><span class="s5">Gestione continuativa</span></h3>
+<p class="p9"><span class="s5">Monitoriamo, ottimizziamo, reportiamo</span></p>
+<p class="p10"><span class="s1">Funzioniamo come il tuo reparto commerciale digitale. Senza assumerlo.</span></p>
+<h2 style="margin: 0.0px 0.0px 20.0px 0.0px; text-align: center; font: 42.0px 'Helvetica Neue'; color: #0b142c; -webkit-text-stroke: #0b142c"><span class="s4"><b>Con chi lavoriamo</b><b></b></span></h2>
+<h3 style="margin: 0.0px 0.0px 16.0px 0.0px; text-align: center; font: 28.0px 'Helvetica Neue'; color: #0b142c; -webkit-text-stroke: #0b142c"><span class="s5">CorteSPA</span></h3>
+<p class="p12"><span class="s5">Centro wellness nelle Dolomiti. Vendita online di ingressi spa e percorsi benessere.</span></p>
+<p class="p13"><span class="s1"><a href="https://cortespa.it/">cortespa.it →<span class="s6"></span></a></span></p>
+<h2 style="margin: 0.0px 0.0px 20.0px 0.0px; text-align: center; font: 42.0px 'Helvetica Neue'; color: #0b142c; -webkit-text-stroke: #0b142c"><span class="s5"><b>Chi siamo</b><b></b></span></h2>
+<p class="p14"><span class="s5">Sappiamo come funzionano le vendite — abbiamo gestito reti commerciali e lanciato brand in aziende come Luxottica, Geox e Walgreens. Oggi portiamo lo stesso approccio agli operatori turistici: strategia chiara, esecuzione concreta, focus sui risultati.</span></p>
+<h2 style="margin: 0.0px 0.0px 20.0px 0.0px; text-align: center; font: 42.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff"><span class="s1"><b>Vuoi capire se possiamo lavorare insieme?</b></span></h2>
+<p class="p16"><span class="s7"><a href="https://calendly.com/giacomo-toscani">Prenota una chiamata<span class="s1"></span></a></span></p>
+<p class="p17"><span class="s8">oppure scrivi a <a href="mailto:info@experiencly.com"><span class="s9">info@experiencly.com</span></a></span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 18.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff"><span class="s10">Experiencly</span></h4>
+<p class="p19"><span class="s10">La tua funzione commerciale esterna per le vendite online di esperienze.</span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 18.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff"><span class="s10">Contatti</span></h4>
+<p class="p19"><span class="s10">Milano, Italia</span></p>
+<p class="p20"><span class="s10"><a href="mailto:info@experiencly.com">info@experiencly.com<span class="s11"></span></a></span></p>
+<h4 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 18.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff"><span class="s10">Informazioni Legali</span></h4>
+<p class="p19"><span class="s10">P.IVA: IT12173330965</span></p>
+<p class="p19"><span class="s10">REA: MI - 2726615</span></p>
+<p class="p21"><span class="s10">© 2026 Experiencly by Puote. Tutti i diritti riservati.</span></p>
 </body>
 </html>
