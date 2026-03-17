@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy â Experiencly</title>
+  <meta name="description" content="Privacy Policy for Experiencly â experiencly.com">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cream:      #FAF8F5;
+      --deep-green: #2C4A3E;
+      --mid-green:  #3D6355;
+      --gold:       #B8955A;
+      --dark:       #1C1C1A;
+      --mid-gray:   #5C5C58;
+      --light-gray: #9A9A95;
+      --border:     #E8E4DE;
+      --serif:      'Playfair Display', Georgia, serif;
+      --sans:       'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--dark);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ââ HEADER âââââââââââââââââââââââââââââââââââââââ */
+    .site-header {
+      background: var(--deep-green);
+      padding: 22px 0;
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo a {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 36px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.85;
+    }
+
+    .logo-text {
+      font-family: var(--serif);
+      font-size: 20px;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .back-link {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: rgba(255,255,255,0.85); }
+
+    .back-link svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* ââ MAIN CONTENT ââââââââââââââââââââââââââââââââââ */
+    .page-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 80px 48px 100px;
+    }
+
+    .page-eyebrow {
+      display: inline-block;
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .page-title {
+      font-family: var(--serif);
+      font-size: clamp(30px, 4vw, 42px);
+      font-weight: 500;
+      color: var(--deep-green);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .page-meta {
+      font-size: 13px;
+      color: var(--light-gray);
+      margin-bottom: 56px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ââ CONTENT TYPOGRAPHY ââââââââââââââââââââââââââââ */
+    .content-section {
+      margin-bottom: 48px;
+    }
+
+    .content-section h2 {
+      font-family: var(--serif);
+      font-size: 19px;
+      font-weight: 500;
+      color: var(--deep-green);
+      margin-bottom: 16px;
+      letter-spacing: 0.01em;
+    }
+
+    .content-section p {
+      font-size: 15px;
+      color: var(--mid-gray);
+      line-height: 1.85;
+      margin-bottom: 14px;
+    }
+
+    .content-section p:last-child { margin-bottom: 0; }
+
+    .content-section a {
+      color: var(--deep-green);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .content-section a:hover { color: var(--mid-green); }
+
+    .divider {
+      width: 36px;
+      height: 1px;
+      background: var(--border);
+      margin: 0 0 48px;
+    }
+
+    /* ââ FOOTER âââââââââââââââââââââââââââââââââââââââ */
+    .site-footer {
+      background: var(--deep-green);
+      color: rgba(255,255,255,0.55);
+      padding: 48px 48px 36px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: rgba(255,255,255,0.65); }
+
+    /* ââ RESPONSIVE âââââââââââââââââââââââââââââââââââ */
+    @media (max-width: 640px) {
+      .header-inner { padding: 0 20px; }
+      .page-wrap { padding: 56px 20px 80px; }
+      .site-footer { padding: 40px 20px 28px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <a href="/">
+          <img src="/logo.png" alt="Experiencly" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+          <span class="logo-text" style="display:none">Experiencly</span>
+        </a>
+      </div>
+      <a href="/dolomites" class="back-link">
+        <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M10 7H2M6 3L2 7l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Dolomites
+      </a>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="page-wrap">
+    <span class="page-eyebrow">Legal</span>
+    <h1 class="page-title">Privacy Policy</h1>
+    <p class="page-meta">Experiencly â experiencly.com &nbsp;Â·&nbsp; Last updated: March 2026</p>
+
+    <div class="content-section">
+      <h2>About This Policy</h2>
+      <p>Experiencly ("we", "us") operates the website experiencly.com. This page explains how we handle data when you visit our site.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content-section">
+      <h2>Data Collection</h2>
+      <p>This website does not collect personal data from visitors. We do not require registration, login, or any form of data submission to use this site. No forms requesting personal information are present on any page.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Cookies</h2>
+      <p>This website may use analytics cookies (such as Google Analytics) to understand how visitors interact with the site. These cookies collect anonymous, aggregated data only. No personally identifiable information is collected or stored.</p>
+      <p>A functional cookie (<code>exp_consent</code>) is stored locally to remember your cookie consent choice. This cookie contains no personal data.</p>
+      <p>You can disable cookies in your browser settings at any time. This will not affect your ability to use this site.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Third-Party Links</h2>
+      <p>This website contains links to third-party websites (experience operators such as CorteSPA). When you click a "Book Now" button, you leave experiencly.com and are directed to the operator's own platform.</p>
+      <p>We are not responsible for the privacy practices or content of these external sites. We encourage you to review the privacy policy of any site you visit before submitting personal information.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Your Rights (GDPR)</h2>
+      <p>Under the EU General Data Protection Regulation, you have the right to access, rectify, or request deletion of any personal data we hold about you. Since we do not collect personal data in the course of normal site use, these rights are not typically applicable.</p>
+      <p>If you have concerns about how we handle data, please contact us using the details below.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Contact</h2>
+      <p>For questions about this policy, please write to <a href="mailto:info@experiencly.com">info@experiencly.com</a>.</p>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-bottom">
+        <span class="footer-copy">Â© 2026 Experiencly â Curated experiences in the Dolomites</span>
+        <div class="footer-links">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="mailto:info@experiencly.com">info@experiencly.com</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
