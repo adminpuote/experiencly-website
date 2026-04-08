@@ -1,928 +1,610 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dolomites Experiences â Experiencly</title>
-  <meta name="description" content="Handpicked wellness, adventure and nature experiences in the heart of the Belluno Dolomites. Curated by Experiencly.">
-  <link rel="icon" type="image/png" href="/favicon.png">
-  <link rel="apple-touch-icon" href="/favicon.png">
-  <link rel="canonical" href="https://experiencly.com/dolomites">
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Schema.org JSON-LD for AI discoverability -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "Dolomites Experiences",
-    "description": "Curated wellness, adventure and nature experiences in the Belluno Dolomites, Italy",
-    "url": "https://experiencly.com/dolomites",
-    "numberOfItems": 1,
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "item": {
-          "@type": "HealthAndBeautyBusiness",
-          "name": "Corte SPA â Water & Wellness",
-          "description": "A 2,000 sqm wellness center with panoramic saunas, heated pool with mountain views, steam room, and sun terrace in the Belluno Dolomites.",
-          "url": "https://cortespa.it/en/prenota/",
-          "image": "https://cortespa.it/wp-content/uploads/2025/07/MG_8075PP-scaled.jpg",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Via Enrico Mattei, 60",
-            "addressLocality": "Borca di Cadore",
-            "addressRegion": "BL",
-            "postalCode": "32040",
-            "addressCountry": "IT"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 46.4372,
-            "longitude": 12.2142
-          },
-          "telephone": "+390435700216",
-          "priceRange": "â¬60-â¬190",
-          "openingHours": "Mo-Su 12:00-21:00"
-        }
-      }
-    ]
-  }
-  </script>
-
-  <style>
-    /* ============================================================
-       RESET & CSS VARIABLES
-    ============================================================ */
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root {
-      --cream:       #FAF8F5;
-      --warm-white:  #FFFFFF;
-      --deep-green:  #2C4A3E;
-      --mid-green:   #3D6355;
-      --gold:        #B8955A;
-      --gold-light:  #D4AD72;
-      --dark:        #1C1C1A;
-      --mid-gray:    #5C5C58;
-      --light-gray:  #9A9A95;
-      --border:      #E8E4DE;
-      --serif:       'Playfair Display', Georgia, 'Times New Roman', serif;
-      --sans:        'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--sans);
-      font-weight: 400;
-      color: var(--dark);
-      background: var(--cream);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    /* ============================================================
-       HEADER
-    ============================================================ */
-    .site-header {
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      padding: 28px 0;
-    }
-
-    .header-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo a {
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-    }
-
-    .logo img {
-      height: 40px;
-      width: auto;
-      filter: brightness(0) invert(1);
-      opacity: 0.92;
-    }
-
-    .logo-text {
-      font-family: var(--serif);
-      font-size: 22px;
-      font-weight: 500;
-      color: white;
-      letter-spacing: 0.02em;
-    }
-
-    .lang-switcher {
-      display: flex;
-      align-items: center;
-      gap: 2px;
-    }
-
-    .lang-btn {
-      background: none;
-      border: none;
-      color: rgba(255,255,255,0.6);
-      font-family: var(--sans);
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      cursor: pointer;
-      padding: 7px 11px;
-      border-radius: 3px;
-      transition: all 0.2s ease;
-    }
-
-    .lang-btn:hover { color: white; background: rgba(255,255,255,0.1); }
-    .lang-btn.active { color: white; background: rgba(255,255,255,0.15); }
-
-    .lang-sep {
-      color: rgba(255,255,255,0.25);
-      font-size: 11px;
-      pointer-events: none;
-    }
-
-    /* ============================================================
-       HERO
-    ============================================================ */
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=1920&q=85&auto=format&fit=crop');
-      background-size: cover;
-      background-position: center 40%;
-      animation: heroZoom 10s ease forwards;
-    }
-
-    .hero-bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(18, 32, 24, 0.38) 0%,
-        rgba(18, 32, 24, 0.52) 45%,
-        rgba(18, 32, 24, 0.72) 100%
-      );
-    }
-
-    @keyframes heroZoom {
-      from { transform: scale(1.06); }
-      to   { transform: scale(1.00); }
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 840px;
-      padding: 120px 32px 64px;
-    }
-
-    .hero-eyebrow {
-      display: inline-block;
-      color: var(--gold-light);
-      font-family: var(--sans);
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      margin-bottom: 28px;
-    }
-
-    .hero h1 {
-      font-family: var(--serif);
-      font-size: clamp(38px, 5.5vw, 68px);
-      font-weight: 500;
-      color: white;
-      line-height: 1.13;
-      margin-bottom: 28px;
-      letter-spacing: -0.01em;
-    }
-
-    .hero-sub {
-      font-size: clamp(16px, 1.8vw, 19px);
-      color: rgba(255,255,255,0.82);
-      font-weight: 300;
-      max-width: 580px;
-      margin: 0 auto 56px;
-      line-height: 1.75;
-    }
-
-    .hero-scroll {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      color: rgba(255,255,255,0.5);
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    .hero-scroll-line {
-      width: 44px;
-      height: 1px;
-      background: rgba(255,255,255,0.35);
-    }
-
-    /* ============================================================
-       EXPERIENCES SECTION
-    ============================================================ */
-    .experiences-wrap {
-      padding: 100px 48px 80px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 72px;
-    }
-
-    .section-eyebrow {
-      display: inline-block;
-      color: var(--gold);
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-
-    .section-title {
-      font-family: var(--serif);
-      font-size: clamp(28px, 3.5vw, 42px);
-      font-weight: 500;
-      color: var(--deep-green);
-      line-height: 1.22;
-    }
-
-    /* ============================================================
-       EXPERIENCE CARD
-    ============================================================ */
-    .experience-card {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      background: var(--warm-white);
-      border-radius: 3px;
-      overflow: hidden;
-      box-shadow: 0 12px 56px rgba(28, 28, 26, 0.10);
-      max-width: 980px;
-      margin: 0 auto;
-      /* scroll-reveal */
-      opacity: 0;
-      transform: translateY(36px);
-      transition: opacity 0.9s ease, transform 0.9s ease;
-    }
-
-    .experience-card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .card-image {
-      position: relative;
-      overflow: hidden;
-      min-height: 500px;
-    }
-
-    .card-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 7s ease;
-    }
-
-    .experience-card:hover .card-image img {
-      transform: scale(1.05);
-    }
-
-    .card-badge {
-      position: absolute;
-      top: 24px;
-      left: 24px;
-      background: var(--deep-green);
-      color: rgba(255,255,255,0.92);
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      padding: 7px 13px;
-      border-radius: 2px;
-    }
-
-    .card-body {
-      padding: 60px 56px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .card-location {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--gold);
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      margin-bottom: 22px;
-    }
-
-    .card-location svg {
-      flex-shrink: 0;
-      width: 12px;
-      height: 14px;
-    }
-
-    .card-title {
-      font-family: var(--serif);
-      font-size: 28px;
-      font-weight: 500;
-      color: var(--deep-green);
-      line-height: 1.22;
-      margin-bottom: 24px;
-      letter-spacing: -0.01em;
-    }
-
-    .card-desc {
-      font-size: 15px;
-      color: var(--mid-gray);
-      line-height: 1.85;
-      margin-bottom: 36px;
-    }
-
-    .card-divider {
-      width: 36px;
-      height: 1px;
-      background: var(--border);
-      margin-bottom: 32px;
-    }
-
-    .card-price {
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-      margin-bottom: 40px;
-    }
-
-    .price-label {
-      font-size: 11px;
-      color: var(--light-gray);
-      font-weight: 400;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    .price-value {
-      font-family: var(--serif);
-      font-size: 26px;
-      font-weight: 600;
-      color: var(--deep-green);
-    }
-
-    .price-per {
-      font-size: 14px;
-      font-weight: 400;
-      font-family: var(--sans);
-      color: var(--light-gray);
-    }
-
-    .book-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--deep-green);
-      color: white;
-      text-decoration: none;
-      font-family: var(--sans);
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 16px 32px;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-      align-self: flex-start;
-    }
-
-    .book-btn:hover {
-      background: var(--mid-green);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 28px rgba(44, 74, 62, 0.28);
-    }
-
-    .book-btn svg {
-      width: 13px;
-      height: 13px;
-      transition: transform 0.2s ease;
-    }
-
-    .book-btn:hover svg { transform: translateX(4px); }
-
-    /* ============================================================
-       COMING SOON
-    ============================================================ */
-    .coming-soon-wrap {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 48px 100px;
-    }
-
-    .coming-soon {
-      border-top: 1px solid var(--border);
-      padding-top: 72px;
-      text-align: center;
-    }
-
-    .coming-soon-line {
-      width: 44px;
-      height: 1px;
-      background: var(--gold);
-      margin: 0 auto 32px;
-    }
-
-    .coming-soon p {
-      font-family: var(--serif);
-      font-size: 19px;
-      font-style: italic;
-      color: var(--light-gray);
-      line-height: 1.65;
-      max-width: 520px;
-      margin: 0 auto;
-    }
-
-    /* ============================================================
-       FOOTER
-    ============================================================ */
-    .site-footer {
-      background: var(--deep-green);
-      color: rgba(255,255,255,0.55);
-      padding: 64px 48px 40px;
-    }
-
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .footer-logo {
-      margin-bottom: 36px;
-    }
-
-    .footer-logo img {
-      height: 34px;
-      width: auto;
-      filter: brightness(0) invert(1);
-      opacity: 0.6;
-    }
-
-    .footer-logo-text {
-      font-family: var(--serif);
-      font-size: 20px;
-      font-weight: 500;
-      color: rgba(255,255,255,0.6);
-    }
-
-    .footer-disclaimer {
-      font-size: 13px;
-      line-height: 1.85;
-      max-width: 680px;
-      margin-bottom: 44px;
-      color: rgba(255,255,255,0.42);
-    }
-
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .footer-copy {
-      font-size: 12px;
-      color: rgba(255,255,255,0.3);
-      letter-spacing: 0.03em;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 28px;
-    }
-
-    .footer-links a {
-      font-size: 12px;
-      color: rgba(255,255,255,0.3);
-      text-decoration: none;
-      letter-spacing: 0.05em;
-      transition: color 0.2s ease;
-    }
-
-    .footer-links a:hover { color: rgba(255,255,255,0.7); }
-
-    /* ============================================================
-       COOKIE BANNER
-    ============================================================ */
-    .cookie-banner {
-      position: fixed;
-      bottom: 0; left: 0; right: 0;
-      z-index: 9999;
-      background: rgba(22, 22, 20, 0.97);
-      backdrop-filter: blur(10px);
-      padding: 18px 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 28px;
-      flex-wrap: wrap;
-      transform: translateY(110%);
-      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .cookie-banner.visible { transform: translateY(0); }
-
-    .cookie-text {
-      font-size: 13px;
-      color: rgba(255,255,255,0.7);
-      line-height: 1.6;
-    }
-
-    .cookie-text a {
-      color: var(--gold-light);
-      text-decoration: none;
-    }
-
-    .cookie-text a:hover { text-decoration: underline; }
-
-    .cookie-accept {
-      flex-shrink: 0;
-      background: var(--gold);
-      color: white;
-      border: none;
-      font-family: var(--sans);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 10px 26px;
-      border-radius: 2px;
-      cursor: pointer;
-      transition: background 0.2s ease;
-    }
-
-    .cookie-accept:hover { background: var(--gold-light); }
-
-    /* ============================================================
-       RESPONSIVE
-    ============================================================ */
-    @media (max-width: 960px) {
-      .experience-card {
-        grid-template-columns: 1fr;
-      }
-      .card-image { min-height: 360px; }
-      .card-body { padding: 44px 40px; }
-    }
-
-    @media (max-width: 640px) {
-      .header-inner { padding: 0 20px; }
-      .logo img { height: 34px; }
-      .lang-btn { padding: 5px 8px; font-size: 11px; }
-
-      .hero-content { padding: 100px 20px 52px; }
-
-      .experiences-wrap { padding: 72px 20px 64px; }
-      .section-header { margin-bottom: 48px; }
-
-      .card-body { padding: 32px 24px 40px; }
-      .card-title { font-size: 23px; }
-      .card-desc { font-size: 14px; }
-
-      .coming-soon-wrap { padding: 0 20px 80px; }
-      .coming-soon { padding-top: 56px; }
-      .coming-soon p { font-size: 17px; }
-
-      .site-footer { padding: 52px 20px 36px; }
-      .footer-bottom { flex-direction: column; align-items: flex-start; }
-
-      .cookie-banner { padding: 16px 20px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unforgettable Experiences in the Dolomites | Experiencly</title>
+<meta name="description" content="Curated experiences in Cortina d'Ampezzo and the Dolomites. Sunset dinners, via ferrata, cooking classes, e-bike tours and more. Book your adventure today.">
+<link rel="canonical" href="https://experiencly.com/dolomites">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --stone: #2C2825;
+  --cream: #F5F0EB;
+  --warm: #E8DFD5;
+  --accent: #8B6914;
+  --accent-light: #C4A43A;
+  --pine: #3D5A3E;
+  --sky: #6B8BA4;
+  --text: #3A3632;
+  --text-light: #7A756F;
+  --white: #FDFCFA;
+  --shadow: rgba(44, 40, 37, 0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+}
+
+.hero {
+  min-height: 92vh;
+  background: linear-gradient(165deg, var(--stone) 0%, #1a1715 100%);
+  color: var(--cream);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: 
+    radial-gradient(ellipse at 20% 50%, rgba(139, 105, 20, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 30%, rgba(61, 90, 62, 0.12) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-tag {
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  line-height: 1.1;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--accent-light);
+}
+
+.hero-sub {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: rgba(245, 240, 235, 0.7);
+  max-width: 580px;
+  margin-bottom: 2.5rem;
+}
+
+.hero-cta {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: var(--accent);
+  color: var(--cream);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.hero-cta:hover {
+  background: var(--accent-light);
+  color: var(--stone);
+}
+
+.hero-stats {
+  display: flex;
+  gap: 3rem;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(245, 240, 235, 0.1);
+}
+
+.hero-stat span {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: var(--accent-light);
+}
+
+.hero-stat small {
+  font-size: 0.75rem;
+  color: rgba(245, 240, 235, 0.5);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+section {
+  padding: 5rem 2rem;
+}
+
+.section-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.section-desc {
+  color: var(--text-light);
+  max-width: 560px;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+}
+
+.experiences {
+  background: var(--white);
+}
+
+.experiences-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 2rem;
+}
+
+.exp-card {
+  background: var(--cream);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.exp-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px var(--shadow);
+}
+
+.exp-img {
+  height: 240px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.exp-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: var(--stone);
+  color: var(--cream);
+  padding: 0.35rem 0.8rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.exp-badge.inquiry {
+  background: var(--pine);
+}
+
+.exp-price {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background: var(--white);
+  color: var(--stone);
+  padding: 0.4rem 0.9rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.exp-body {
+  padding: 1.5rem;
+}
+
+.exp-body h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.exp-body p {
+  color: var(--text-light);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.exp-meta {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+.exp-meta span::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+.exp-cta-book {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.4rem;
+  background: var(--accent);
+  color: var(--cream);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.exp-cta-book:hover {
+  background: var(--accent-light);
+  color: var(--stone);
+}
+
+.exp-cta-inquiry {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.4rem;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.exp-cta-inquiry:hover {
+  background: var(--accent);
+  color: var(--cream);
+}
+
+.lead-section {
+  background: var(--stone);
+  color: var(--cream);
+  text-align: center;
+}
+
+.lead-section .section-label { color: var(--accent-light); }
+.lead-section .section-title { color: var(--cream); }
+.lead-section .section-desc {
+  color: rgba(245,240,235,0.6);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.lead-form {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0;
+}
+
+.lead-form input {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  border: none;
+  background: var(--white);
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: var(--text);
+  outline: none;
+}
+
+.lead-form input::placeholder {
+  color: var(--text-light);
+}
+
+.lead-form button {
+  padding: 1rem 2rem;
+  background: var(--accent);
+  color: var(--cream);
+  border: none;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.lead-form button:hover {
+  background: var(--accent-light);
+  color: var(--stone);
+}
+
+footer {
+  background: var(--stone);
+  border-top: 1px solid rgba(245,240,235,0.08);
+  color: rgba(245,240,235,0.4);
+  padding: 3rem 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+footer a {
+  color: var(--accent-light);
+  text-decoration: none;
+}
+
+footer .footer-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--cream);
+  margin-bottom: 0.5rem;
+}
+
+.footer-disclaimer {
+  max-width: 600px;
+  margin: 1.5rem auto 0;
+  font-size: 0.7rem;
+  line-height: 1.6;
+  color: rgba(245,240,235,0.3);
+}
+
+@media (max-width: 768px) {
+  .hero { min-height: 80vh; padding: 3rem 1.5rem; }
+  .hero-stats { flex-direction: column; gap: 1.5rem; }
+  .experiences-grid { grid-template-columns: 1fr; }
+  .lead-form { flex-direction: column; }
+  .lead-form button { padding: 1rem; }
+  section { padding: 3.5rem 1.5rem; }
+}
+</style>
 </head>
 <body>
 
-  <!-- ============================================================
-       HEADER
-  ============================================================ -->
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="logo">
-        <a href="/">
-          <img src="/logo.png" alt="Experiencly" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
-          <span class="logo-text" style="display:none">Experiencly</span>
-        </a>
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">Cortina d'Ampezzo &middot; Cadore &middot; Dolomites</div>
+    <h1>The experiences<br>you <em>came here for</em></h1>
+    <p class="hero-sub">Sunset dinners at mountain huts. Hands-on cheesemaking. Canyoning through crystal rivers. The Dolomites are more than a view &mdash; they're something you do.</p>
+    <a href="#experiences" class="hero-cta">Explore experiences &darr;</a>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span>&euro;30 &ndash; &euro;260</span>
+        <small>Every budget</small>
       </div>
-      <div class="lang-switcher" role="navigation" aria-label="Language selector">
-        <button class="lang-btn active" onclick="setLang('en')" aria-label="Switch to English">EN</button>
-        <span class="lang-sep" aria-hidden="true">Â·</span>
-        <button class="lang-btn" onclick="setLang('it')" aria-label="Passa all'italiano">IT</button>
-        <span class="lang-sep" aria-hidden="true">Â·</span>
-        <button class="lang-btn" onclick="setLang('de')" aria-label="Zur deutschen Version wechseln">DE</button>
+      <div class="hero-stat">
+        <span>2&ndash;6 hrs</span>
+        <small>Half-day adventures</small>
       </div>
-    </div>
-  </header>
-
-  <!-- ============================================================
-       HERO
-  ============================================================ -->
-  <section class="hero" aria-label="Hero">
-    <div class="hero-bg" role="img" aria-label="Dolomites mountain landscape"></div>
-    <div class="hero-content">
-      <span class="hero-eyebrow">Belluno Dolomites Â· Italy</span>
-      <h1
-        data-en="Discover the Best Experiences in the Dolomites"
-        data-it="Scopri le Migliori Esperienze nelle Dolomiti"
-        data-de="Entdecken Sie die besten Erlebnisse in den Dolomiten">
-        Discover the Best Experiences in the Dolomites
-      </h1>
-      <p class="hero-sub"
-        data-en="Handpicked wellness, adventure and nature experiences in the heart of the Belluno Dolomites"
-        data-it="Esperienze selezionate di benessere, avventura e natura nel cuore delle Dolomiti Bellunesi"
-        data-de="AusgewÃ¤hlte Wellness-, Abenteuer- und Naturerlebnisse im Herzen der Belluneser Dolomiten">
-        Handpicked wellness, adventure and nature experiences in the heart of the Belluno Dolomites
-      </p>
-      <div class="hero-scroll" aria-hidden="true">
-        <span class="hero-scroll-line"></span>
-        <span
-          data-en="Explore"
-          data-it="Scopri"
-          data-de="Entdecken">Explore</span>
-        <span class="hero-scroll-line"></span>
+      <div class="hero-stat">
+        <span>Local</span>
+        <small>Guides &amp; artisans</small>
       </div>
     </div>
-  </section>
-
-  <!-- ============================================================
-       EXPERIENCES
-  ============================================================ -->
-  <main>
-    <div class="experiences-wrap">
-      <div class="section-header">
-        <span class="section-eyebrow"
-          data-en="Curated Experiences"
-          data-it="Esperienze Selezionate"
-          data-de="AusgewÃ¤hlte Erlebnisse">Curated Experiences</span>
-        <h2 class="section-title"
-          data-en="Where to Begin"
-          data-it="Da Dove Iniziare"
-          data-de="Wo Anfangen">Where to Begin</h2>
-      </div>
-
-      <!-- CORTE SPA CARD -->
-      <article class="experience-card" id="cortespa-card">
-        <div class="card-image">
-          <img
-            src="https://cortespa.it/wp-content/uploads/2025/07/MG_8075PP-scaled.jpg"
-            alt="Corte SPA â heated pool with Dolomites mountain views"
-            loading="lazy">
-          <span class="card-badge"
-            data-en="Wellness"
-            data-it="Benessere"
-            data-de="Wellness">Wellness</span>
-        </div>
-        <div class="card-body">
-          <div class="card-location">
-            <svg viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M6 0C3.24 0 1 2.24 1 5c0 3.75 5 11 5 11s5-7.25 5-11c0-2.76-2.24-5-5-5zm0 7.5A2.5 2.5 0 1 1 6 2.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/>
-            </svg>
-            <span
-              data-en="Borca di Cadore, Belluno Dolomites"
-              data-it="Borca di Cadore, Dolomiti Bellunesi"
-              data-de="Borca di Cadore, Belluneser Dolomiten">Borca di Cadore, Belluno Dolomites</span>
-          </div>
-
-          <h3 class="card-title">Corte SPA â Water &amp; Wellness</h3>
-
-          <p class="card-desc"
-            data-en="A 2,000 sqm wellness center with panoramic saunas, a 32Â° heated pool with mountain views, steam room, emotional showers, and a sun terrace overlooking Monte Pelmo. Day spa packages from â¬60."
-            data-it="Un centro benessere di 2.000 mq con saune panoramiche, piscina riscaldata a 32Â° con vista sulle montagne, bagno turco, docce emozionali e terrazza solarium con vista sul Monte Pelmo. Pacchetti day spa da â¬60."
-            data-de="Ein 2.000 mÂ² groÃes Wellnesscenter mit Panorama-Saunen, einem 32Â° beheiztem Pool mit Bergblick, Dampfbad, Erlebnisduschen und einer Sonnenterrasse mit Blick auf den Monte Pelmo. Day-Spa-Pakete ab â¬60.">
-            A 2,000 sqm wellness center with panoramic saunas, a 32Â° heated pool with mountain views, steam room, emotional showers, and a sun terrace overlooking Monte Pelmo. Day spa packages from â¬60.
-          </p>
-
-          <div class="card-divider"></div>
-
-          <div class="card-price">
-            <span class="price-label"
-              data-en="From"
-              data-it="Da"
-              data-de="Ab">From</span>
-            <span class="price-value">
-              â¬60 <span class="price-per"
-                data-en="/ person"
-                data-it="/ persona"
-                data-de="/ Person">/ person</span>
-            </span>
-          </div>
-
-          <a href="https://cortespa.it/en/prenota/"
-            class="book-btn"
-            id="book-btn"
-            target="_blank"
-            rel="noopener noreferrer">
-            <span
-              data-en="Book Now"
-              data-it="Prenota Ora"
-              data-de="Jetzt Buchen">Book Now</span>
-            <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-        </div>
-      </article>
-    </div>
-
-    <!-- COMING SOON -->
-    <div class="coming-soon-wrap">
-      <div class="coming-soon">
-        <div class="coming-soon-line" aria-hidden="true"></div>
-        <p
-          data-en="We're curating more extraordinary Dolomites experiences. Check back soon."
-          data-it="Stiamo selezionando altre straordinarie esperienze nelle Dolomiti. Torna a trovarci presto."
-          data-de="Wir kuratieren weitere auÃergewÃ¶hnliche Dolomiten-Erlebnisse. Schauen Sie bald wieder vorbei.">
-          We're curating more extraordinary Dolomites experiences. Check back soon.
-        </p>
-      </div>
-    </div>
-  </main>
-
-  <!-- ============================================================
-       FOOTER
-  ============================================================ -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-logo">
-        <img src="/logo.png" alt="Experiencly" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
-        <span class="footer-logo-text" style="display:none">Experiencly</span>
-      </div>
-
-      <p class="footer-disclaimer"
-        data-en="Experiences listed on this page are provided and managed directly by the respective operators. Bookings are completed on the operator's own platform. Experiencly curates this selection but is not a party to any booking transaction."
-        data-it="Le esperienze elencate in questa pagina sono fornite e gestite direttamente dai rispettivi operatori. Le prenotazioni vengono completate sulla piattaforma dell'operatore. Experiencly cura questa selezione ma non Ã¨ parte di alcuna transazione di prenotazione."
-        data-de="Die auf dieser Seite aufgefÃ¸hrten Erlebnisse werden direkt von den jeweiligen Anbietern bereitgestellt und verwaltet. Buchungen werden auf der Plattform des Anbieters abgeschlossen. Experiencly kuratiert diese Auswahl, ist jedoch nicht Vertragspartei einer Buchungstransaktion.">
-        Experiences listed on this page are provided and managed directly by the respective operators. Bookings are completed on the operator's own platform. Experiencly curates this selection but is not a party to any booking transaction.
-      </p>
-
-      <div class="footer-bottom">
-        <span class="footer-copy">Â© 2026 Experiencly â Curated experiences in the Dolomites</span>
-        <div class="footer-links">
-          <a href="/privacy"
-            data-en="Privacy Policy"
-            data-it="Privacy Policy"
-            data-de="Datenschutz">Privacy Policy</a>
-          <a href="mailto:info@experiencly.com">info@experiencly.com</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ============================================================
-       COOKIE BANNER
-  ============================================================ -->
-  <div class="cookie-banner" id="cookie-banner" role="complementary" aria-label="Cookie consent">
-    <p class="cookie-text" id="cookie-text">
-      This site uses cookies for analytics purposes. By continuing to browse, you accept our <a href="/privacy">cookie policy</a>.
-    </p>
-    <button class="cookie-accept" id="cookie-accept-btn" onclick="acceptCookies()">OK</button>
   </div>
+</div>
 
-  <!-- ============================================================
-       JAVASCRIPT
-  ============================================================ -->
-  <script>
-    // ââ LANGUAGE DATA ââââââââââââââââââââââââââââââââââââââââââââ
-    const BOOK_HREFS = {
-      en: 'https://cortespa.it/en/prenota/',
-      it: 'https://cortespa.it/prenota/',
-      de: 'https://cortespa.it/en/prenota/'
-    };
+<section class="experiences" id="experiences">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="section-label">Book now</div>
+    <h2 class="section-title">Ready to book</h2>
+    <p class="section-desc">Curated experiences you can reserve instantly. Operated by local guides and artisans in the Cadore valley. Free cancellation up to 7 days before.</p>
+  </div>
+  <div class="experiences-grid">
 
-    const COOKIE_HTML = {
-      en: 'This site uses cookies for analytics purposes. By continuing to browse, you accept our <a href="/privacy">cookie policy</a>.',
-      it: 'Questo sito utilizza cookie per finalitÃ  analitiche. Continuando la navigazione, accetti la nostra <a href="/privacy">cookie policy</a>.',
-      de: 'Diese Website verwendet Cookies zu Analysezwecken. Durch weiteres Surfen akzeptieren Sie unsere <a href="/privacy">Cookie-Richtlinie</a>.'
-    };
+    <a class="exp-card" href="https://www.welcomedolomiti.it/experiences/sunset-with-dinner-in-a-mountain-hut?utm_source=experiencly&utm_medium=landing&utm_campaign=dolomites_test_2026" target="_blank" rel="noopener">
+      <div class="exp-img" style="background-image:url('https://static.wixstatic.com/media/760adf_9ee8b403d09947898e59cf78cd0045a0~mv2.webp/v1/fill/w_980,h_551,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Tre%20Cime%20di%20Lavaredo%20al%20tramonto.webp');">
+        <span class="exp-badge">Signature</span>
+        <span class="exp-price">&euro;260</span>
+      </div>
+      <div class="exp-body">
+        <h3>Sunset Dinner at Tre Cime Mountain Hut</h3>
+        <p>Guided hike to a panoramic viewpoint at sunset, followed by a traditional alpine dinner with local ingredients. Includes round-trip transfer from Cortina or Auronzo.</p>
+        <div class="exp-meta">
+          <span>~4 hours</span>
+          <span>Min. 4 guests</span>
+          <span>EN / IT</span>
+        </div>
+        <span class="exp-cta-inquiry">Request availability &rarr;</span>
+      </div>
+    </a>
 
-    const META_TITLES = {
-      en: 'Dolomites Experiences â Experiencly',
-      it: 'Esperienze nelle Dolomiti â Experiencly',
-      de: 'Dolomiten-Erlebnisse â Experiencly'
-    };
+    <a class="exp-card" href="https://welcomedolomiti.regiondo.com/dolce-dolomitico-cooking-class?utm_source=experiencly&utm_medium=landing&utm_campaign=dolomites_test_2026" target="_blank" rel="noopener">
+      <div class="exp-img" style="background-image:url('https://static.wixstatic.com/media/760adf_c246f719e97a4c2880bdd2cdb547eea8~mv2.webp/v1/fill/w_980,h_551,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Cooking%20Class.webp');">
+        <span class="exp-badge">Food</span>
+        <span class="exp-price">&euro;150</span>
+      </div>
+      <div class="exp-body">
+        <h3>Traditional Dolomites Cooking Class</h3>
+        <p>Learn to prepare a traditional Alpine dish with fresh local ingredients. Hands-on, fun for the whole family. Ends with a snack of your own creations.</p>
+        <div class="exp-meta">
+          <span>~2 hours</span>
+          <span>Min. 4 guests</span>
+          <span>EN / IT</span>
+        </div>
+        <span class="exp-cta-book">Book now &rarr;</span>
+      </div>
+    </a>
 
-    // ââ LANGUAGE SWITCHER âââââââââââââââââââââââââââââââââââââââââ
-    let currentLang = localStorage.getItem('exp-lang') || 'en';
+    <a class="exp-card" href="https://welcomedolomiti.regiondo.com/canyoning-300758?utm_source=experiencly&utm_medium=landing&utm_campaign=dolomites_test_2026" target="_blank" rel="noopener">
+      <div class="exp-img" style="background-image:url('https://static.wixstatic.com/media/760adf_4dd5ad9b45f444e898439fe644776bc5~mv2.webp/v1/fill/w_980,h_551,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Rafting%20(2).webp');">
+        <span class="exp-badge">Adrenaline</span>
+        <span class="exp-price">&euro;120</span>
+      </div>
+      <div class="exp-body">
+        <h3>Canyoning in the Dolomite Rivers</h3>
+        <p>Natural slides, jumps and rope descents through a crystal-clear canyon. Ends with a 30m waterfall rappel. All gear, photos and video included.</p>
+        <div class="exp-meta">
+          <span>~3 hours</span>
+          <span>Min. 2 guests</span>
+          <span>EN / FR / IT</span>
+        </div>
+        <span class="exp-cta-book">Book now &rarr;</span>
+      </div>
+    </a>
 
-    function setLang(lang) {
-      currentLang = lang;
-      localStorage.setItem('exp-lang', lang);
+    <a class="exp-card" href="https://welcomedolomiti.regiondo.com/a-day-as-a-cheesemaker-thursday?utm_source=experiencly&utm_medium=landing&utm_campaign=dolomites_test_2026" target="_blank" rel="noopener">
+      <div class="exp-img" style="background-image:url('https://static.wixstatic.com/media/760adf_a4296aed764a433da2669c6f3236344c~mv2.webp/v1/fill/w_980,h_551,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Cheese%20Workshop%20(2).webp');">
+        <span class="exp-badge">Culture</span>
+        <span class="exp-price">&euro;69</span>
+      </div>
+      <div class="exp-body">
+        <h3>A Day as a Cheesemaker</h3>
+        <p>Hands-on workshop at a local dairy in Santo Stefano di Cadore. Learn traditional Dolomite cheesemaking techniques and taste your own creations.</p>
+        <div class="exp-meta">
+          <span>Half day</span>
+          <span>Families welcome</span>
+          <span>EN / IT</span>
+        </div>
+        <span class="exp-cta-book">Book now &rarr;</span>
+      </div>
+    </a>
 
-      // Update all translatable elements
-      document.querySelectorAll('[data-' + lang + ']').forEach(function(el) {
-        var val = el.getAttribute('data-' + lang);
-        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-          el.placeholder = val;
-        } else {
-          el.textContent = val;
-        }
-      });
+    <a class="exp-card" href="https://welcomedolomiti.regiondo.com/visita-guidata-al-museo-dell-occhiale?utm_source=experiencly&utm_medium=landing&utm_campaign=dolomites_test_2026" target="_blank" rel="noopener">
+      <div class="exp-img" style="background-image:url('https://static.wixstatic.com/media/760adf_813dee21061f469d95cabc092100026c~mv2.webp/v1/fill/w_980,h_551,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Eyewear%20Museum.webp');">
+        <span class="exp-badge">Culture</span>
+        <span class="exp-price">&euro;30</span>
+      </div>
+      <div class="exp-body">
+        <h3>Guided Visit to the Eyewear Museum</h3>
+        <p>Discover the fascinating history of sunglasses in the birthplace of the Italian eyewear industry. Cadore has produced glasses for over 700 years.</p>
+        <div class="exp-meta">
+          <span>~1.5 hours</span>
+          <span>All ages</span>
+          <span>EN / IT</span>
+        </div>
+        <span class="exp-cta-book">Book now &rarr;</span>
+      </div>
+    </a>
 
-      // Update book button href
-      var bookBtn = document.getElementById('book-btn');
-      if (bookBtn) bookBtn.href = BOOK_HREFS[lang];
+    <a class="exp-card" href="https://welcomedolomiti.regiondo.com/a-day-as-a-cheesemaker?utm_source=experiencly&utm_medium=landing&utm_campaign=dolomites_test_2026" target="_blank" rel="noopener">
+      <div class="exp-img" style="background-image:url('https://static.wixstatic.com/media/760adf_3fea486b855640bab5c0d7aa9fbc2f74~mv2.webp/v1/fill/w_980,h_551,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Goat%20cheese%20Dolomites.webp');">
+        <span class="exp-badge">Food</span>
+        <span class="exp-price">&euro;79</span>
+      </div>
+      <div class="exp-body">
+        <h3>Goat Cheese Experience: From Milk to Cheese</h3>
+        <p>Visit a goat farm, watch the full cheesemaking process, and taste the results. A deep dive into artisan dairy traditions of the Dolomites.</p>
+        <div class="exp-meta">
+          <span>Half day</span>
+          <span>Families welcome</span>
+          <span>EN / IT</span>
+        </div>
+        <span class="exp-cta-book">Book now &rarr;</span>
+      </div>
+    </a>
 
-      // Update cookie banner text (contains HTML)
-      var cookieTextEl = document.getElementById('cookie-text');
-      if (cookieTextEl) cookieTextEl.innerHTML = COOKIE_HTML[lang];
+  </div>
+</section>
 
-      // Update active lang button
-      document.querySelectorAll('.lang-btn').forEach(function(btn) {
-        btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
-      });
+<section class="experiences" style="background:var(--cream);">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="section-label">On request</div>
+    <h2 class="section-title">Premium experiences in Cortina</h2>
+    <p class="section-desc">Exclusive experiences available on request. Tell us what you're interested in and we'll arrange everything with the operator.</p>
+  </div>
+  <div class="experiences-grid">
 
-      // Update html lang attribute & page title
-      document.documentElement.lang = lang;
-      document.title = META_TITLES[lang];
-    }
+    <a class="exp-card" href="mailto:info@experiencly.com?subject=Via%20Ferrata%20inquiry&body=Hi%2C%20I'm%20interested%20in%20a%20guided%20via%20ferrata%20experience%20in%20Cortina.%20My%20dates%3A%20">
+      <div class="exp-img" style="background-image:url('https://static.wixstatic.com/media/760adf_e068e5b5c3894898a6da066958013f23~mv2.webp/v1/fill/w_980,h_551,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Ferrata%20Tre%20Cime.webp');">
+        <span class="exp-badge inquiry">On request</span>
+      </div>
+      <div class="exp-body">
+        <h3>Via Ferrata with a Certified Guide</h3>
+        <p>Climb the iconic iron paths of the Dolomites with an IFMGA-certified mountain guide. All gear provided. Routes for beginners to experts around Cortina.</p>
+        <div class="exp-meta">
+          <span>Full day</span>
+          <span>Ages 14+</span>
+          <span>EN / IT</span>
+        </div>
+        <span class="exp-cta-inquiry">Request info &rarr;</span>
+      </div>
+    </a>
 
-    // Initialize on load
-    setLang(currentLang);
+    <a class="exp-card" href="mailto:info@experiencly.com?subject=Cooking%20class%20Cortina%20inquiry&body=Hi%2C%20I'm%20interested%20in%20a%20cooking%20class%20in%20Cortina.%20My%20dates%3A%20">
+      <div class="exp-img" style="background-image:url('https://static.wixstatic.com/media/760adf_1696a85774d341ef8463232238352900~mv2.webp/v1/fill/w_980,h_551,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Cooking%20Class%20(2).webp');">
+        <span class="exp-badge inquiry">On request</span>
+      </div>
+      <div class="exp-body">
+        <h3>Private Cooking Class in Cortina</h3>
+        <p>Learn to make casunziei, canederli and strudel with a local chef. Prosecco welcome, hands-on cooking, and a 3-course dinner with your own creations.</p>
+        <div class="exp-meta">
+          <span>~3 hours</span>
+          <span>Groups welcome</span>
+          <span>EN / IT</span>
+        </div>
+        <span class="exp-cta-inquiry">Request info &rarr;</span>
+      </div>
+    </a>
 
-    // ââ COOKIE CONSENT ââââââââââââââââââââââââââââââââââââââââââââ
-    function getCookie(name) {
-      return document.cookie.split(';').some(function(c) {
-        return c.trim().startsWith(name + '=');
-      });
-    }
+    <a class="exp-card" href="mailto:info@experiencly.com?subject=Wellness%20inquiry&body=Hi%2C%20I'm%20interested%20in%20the%20spa%20experience.%20My%20dates%3A%20">
+      <div class="exp-img" style="background-image:url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&q=80');">
+        <span class="exp-badge inquiry">On request</span>
+      </div>
+      <div class="exp-body">
+        <h3>Alpine Wellness &amp; Spa</h3>
+        <p>Indoor pool, sauna ritual, and signature treatments using local mountain ingredients. The perfect recovery after a day on the trails.</p>
+        <div class="exp-meta">
+          <span>2&ndash;4 hours</span>
+          <span>All ages</span>
+          <span>EN / IT</span>
+        </div>
+        <span class="exp-cta-inquiry">Request info &rarr;</span>
+      </div>
+    </a>
 
-    function acceptCookies() {
-      document.cookie = 'exp_consent=1; path=/; max-age=31536000; SameSite=Lax; Secure';
-      var banner = document.getElementById('cookie-banner');
-      banner.style.transform = 'translateY(110%)';
-      setTimeout(function() { banner.style.display = 'none'; }, 500);
-    }
+  </div>
+</section>
 
-    window.addEventListener('load', function() {
-      if (!getCookie('exp_consent')) {
-        setTimeout(function() {
-          document.getElementById('cookie-banner').classList.add('visible');
-        }, 1400);
-      }
-    });
+<section class="lead-section">
+  <div class="section-label">Stay in the loop</div>
+  <h2 class="section-title">New experiences every week</h2>
+  <p class="section-desc">Get notified when we add new experiences &mdash; from helicopter tours to truffle hunting. No spam, just adventures.</p>
+  <form class="lead-form" action="https://formspree.io/f/xzdkwyaq" method="POST">
+    <input type="email" name="email" placeholder="your@email.com" required>
+    <input type="hidden" name="_subject" value="Experiencly Dolomites - New subscriber">
+    <button type="submit">Notify me</button>
+  </form>
+</section>
 
-    // ââ SCROLL REVEAL âââââââââââââââââââââââââââââââââââââââââââââ
-    var revealObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.08 });
-
-    document.querySelectorAll('.experience-card').forEach(function(el) {
-      revealObserver.observe(el);
-    });
-  </script>
+<footer>
+  <div class="footer-brand">Experiencly</div>
+  <p style="margin-bottom:0.5rem;">Curated experiences in the Dolomites &middot; Cortina d'Ampezzo &amp; Cadore</p>
+  <p>Questions? <a href="mailto:info@experiencly.com">info@experiencly.com</a></p>
+  <p class="footer-disclaimer">Experiences are provided and managed directly by the listed operators. Experiencly curates this selection but is not a party to any booking. All bookings are completed on the operator's own platform.</p>
+  <p style="margin-top:1.5rem;font-size:0.7rem;">&copy; 2026 Experiencly &middot; <a href="/privacy">Privacy</a></p>
+</footer>
 
 </body>
 </html>
