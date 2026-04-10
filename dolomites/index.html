@@ -615,5 +615,28 @@ footer .footer-brand {
   <p style="margin-top:1.5rem;font-size:0.7rem;">&copy; 2026 Experiencly &middot; <a href="/privacy">Privacy</a></p>
 </footer>
 
+  <script>
+document.querySelectorAll('.exp-card').forEach(function(card) {
+  card.addEventListener('click', function() {
+    var title = card.querySelector('h3');
+    var name = title ? title.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '_').substring(0, 40) : 'unknown';
+    var price = card.querySelector('.exp-price');
+    var priceText = price ? price.textContent.trim() : '';
+    var badge = card.querySelector('.exp-badge');
+    var badgeText = badge ? badge.textContent.trim() : '';
+    var href = card.getAttribute('href') || '';
+    var isBooking = href.includes('regiondo') || href.includes('welcomedolomiti');
+    if (typeof gtag === 'function') {
+      gtag('event', 'experience_click', {
+        'experience_name': name,
+        'experience_price': priceText,
+        'experience_type': badgeText,
+        'link_url': href,
+        'is_booking': isBooking
+      });
+    }
+  });
+});
+</script>
 </body>
 </html>
